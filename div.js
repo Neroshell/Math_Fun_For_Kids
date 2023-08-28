@@ -45,6 +45,7 @@ let remark = document.querySelector('.remark');
 var audio = new Audio("audio/buzzer.mp3");
 answerElement.addEventListener('click', function (){
    if (answerElement.innerHTML == result){
+        audio2.play();
         remark.style.opacity = '1';
         setTimeout(function () {
             remark.style.opacity = '0';
@@ -58,6 +59,7 @@ answerElement.addEventListener('click', function (){
 
 fakeAnswer.addEventListener('click', function (){
     if (fakeAnswer.innerHTML == result){
+        audio2.play();
         remark.style.opacity = '1';
         setTimeout(function () {
             remark.style.opacity = '0';
@@ -72,6 +74,7 @@ fakeAnswer.addEventListener('click', function (){
 
 fakeAnswer2.addEventListener('click', function (){
     if (fakeAnswer2.innerHTML == result){
+        audio2.play();
         remark.style.opacity = '1';
         setTimeout(function () {
             remark.style.opacity = '0';

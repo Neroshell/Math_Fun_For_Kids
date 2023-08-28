@@ -34,8 +34,10 @@ equation();
 
 let remark = document.querySelector('.remark');
 var audio = new Audio("audio/buzzer.mp3");
+var audio2 = new Audio("audio/bell.wav");
 answerElement.addEventListener('click', function (){
    if (answerElement.innerHTML == result){
+        audio2.play();
         remark.style.opacity = '1';
         remark.innerHTML = "Correct answer, Well done!"
         setTimeout(function () {
@@ -50,6 +52,7 @@ answerElement.addEventListener('click', function (){
 
 fakeAnswer.addEventListener('click', function (){
     if (fakeAnswer.innerHTML == result){
+        audio2.play();
         remark.innerHTML = "Correct answer, Well done!"
         remark.style.opacity = '1';
         setTimeout(function () {
@@ -66,6 +69,7 @@ fakeAnswer.addEventListener('click', function (){
 
 fakeAnswer2.addEventListener('click', function (){
     if (fakeAnswer2.innerHTML == result){
+        audio2.play();
         remark.innerHTML = "Correct answer, Well done!"
         remark.style.opacity = '1';
         setTimeout(function () {
