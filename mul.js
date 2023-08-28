@@ -34,6 +34,7 @@ equation();
 
 let remark = document.querySelector('.remark');
 var audio = new Audio("audio/buzzer.mp3");
+var audio2 = new Audio("audio/bell.wav");
 answerElement.addEventListener('click', function (){
    if (answerElement.innerHTML == result){
         audio2.play();
