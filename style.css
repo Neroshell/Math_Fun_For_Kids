@@ -593,6 +593,9 @@ footer ul li{
 .question-mark{
     color:grey
 }
+
+
+/*Tablet screen*/
 @media (min-width:768px) and (max-width:1024px){
     .first-h1 button{
         width:40%
@@ -647,6 +650,9 @@ footer ul li{
         width:25%
     }
 }
+
+
+/* Laptop Screen */
 @media (min-width:1025px) and (max-width:1440px){
     #bar,.icon-div,.sidenav{
         display:none
@@ -715,6 +721,10 @@ footer ul li{
     .sec-three-boxes{
         display:flex;
         flex-direction:row
+    }
+    .sec-five-imgbox{
+        width:50%;
+        height:200px
     }
     .three-boxes{
         width:30%

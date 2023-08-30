@@ -15,6 +15,69 @@ endgameValue.innerHTML = endgameValue;
 var audio3 = new Audio("audio/end-round.mp3");
 var audio4 = new Audio("audio/restart-sound.mp3");
 var modalfirstScore = document.querySelector('.modal-first-score');
+var comment = document.querySelector('.comment');
+
+
+function updateEndgame(){
+
+   endgameValue++;
+   endgame.innerHTML = endgameValue;
+   if (endgameValue === 10) {
+      audio3.play();
+      secondModal.style.display = "block";
+      overLay.style.display = "block";
+
+   }
+
+}
+
+function updateComment() {
+   if (scoreValue === 1){
+      comment.innerHTML = "Too low! You need to keep practicing";
+   }
+   if (scoreValue === 2){
+      comment.innerHTML = "Keep learning! dont give up yet";
+   }
+   if (scoreValue === 3){
+      comment.innerHTML = "You deserve a higher score! pratice makes perfect";
+   }
+   if (scoreValue === 4){
+      comment.innerHTML = "Very close to average! Keep improving";
+   }
+
+   if (scoreValue === 5){
+      comment.innerHTML = "Average is not your best. Your best is yet to come. keep trying";
+
+   }
+   
+   if (scoreValue === 6){
+      comment.innerHTML = "Fairly good! The more you practice, the better you become.";
+   }
+   if (scoreValue === 7){
+      comment.innerHTML = "Good! This is clever! you are not far from excellent";
+   }
+   if (scoreValue == 8){
+      comment.innerHTML = "intelligent performance!";
+   }
+   if (scoreValue === 9){
+      comment.innerHTML = "Wow! coolest kid in the world! You are brilliant";
+   }
+   if (scoreValue == 10){
+      
+         if (scoreValue === 10) {
+            let success = [
+               "Congratulations! Awesome Performance, You deserve an accolade",
+               "Congrats! This is pure perfection! Well done",
+               "Big win!! You are a genius"
+            ];
+      
+            let gam = Math.floor(Math.random() * success.length);
+      
+            comment.innerHTML = success[gam]; // Change 'comments' to 'comment'
+         }
+      }
+      
+}
 
 
 function equation() {
@@ -48,15 +111,7 @@ equation();
 
 answerElement.addEventListener('click', function () {
 
-   endgameValue++;
-   endgame.innerHTML = endgameValue;
-
-   if (endgameValue === 10) {
-      audio3.play();
-      secondModal.style.display = "block";
-      overLay.style.display = "block";
-
-   }
+   updateEndgame();
 
    if (answerElement.innerHTML == result) {
       scoreValue++;
@@ -70,23 +125,22 @@ answerElement.addEventListener('click', function () {
          equation();
       }, 2000);
 
+
    } else {
 
       equation();
       audio.play();
 
    }
+
+   updateComment();
+
+  
 });
 
 fakeAnswer.addEventListener('click', function () {
-   endgameValue++;
-   endgame.innerHTML = endgameValue;
-   if (endgameValue === 10) {
-      audio3.play();
-      secondModal.style.display = "block";
-      overLay.style.display = "block";
 
-   }
+   updateEndgame();
 
    if (fakeAnswer.innerHTML == result) {
       scoreValue++;
@@ -105,18 +159,13 @@ fakeAnswer.addEventListener('click', function () {
       audio.play();
 
    }
+   updateComment();
 });
 
 fakeAnswer2.addEventListener('click', function () {
-   endgameValue++;
-   endgame.innerHTML = endgameValue;
-   if (endgameValue === 10) {
-      audio3.play();
-      secondModal.style.display = "block";
-      overLay.style.display = "block";
 
-   }
 
+   updateEndgame();
 
    if (fakeAnswer2.innerHTML == result) {
       scoreValue++;
@@ -135,6 +184,7 @@ fakeAnswer2.addEventListener('click', function () {
       equation();
       audio.play();
    }
+   updateComment();
 
 });
 
