@@ -50,7 +50,7 @@ $('.owl-carousel').owlCarousel({
 
 let closeTwo = document.querySelector(".close-two");
 let modal  = document.querySelector(".modal-box");
-
+let body = document.querySelector(".body");
 closeTwo.addEventListener("click", closeModal);
 function closeModal() {
 
@@ -63,6 +63,7 @@ let getStarted = document.querySelector(".get-started");
 getStarted.addEventListener("click", showModal);
 
 function showModal() {
+   
     modal.style.display = "flex";
    
 }
@@ -89,3 +90,12 @@ function signup(e) {
     }
 
 }
+
+let preload = document.querySelector(".preload");
+
+window.addEventListener("load", () => {
+
+        preload.style.display = "none";
+
+
+});
