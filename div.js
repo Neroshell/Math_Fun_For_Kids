@@ -97,8 +97,8 @@ function equation() {
 
    var firstNumber = document.querySelector(".num-1");
    var secondNumber = document.querySelector(".num-2");
-   var num1 = Math.floor(Math.random() * 13);
-   var num2 = Math.floor(Math.random() * 7);
+   var num1 = Math.floor(Math.random() * 10);
+   var num2 = Math.floor(Math.random()  * 5 );
    var dummy = Math.floor(Math.random() * 12);
    var dummy2 = Math.floor(Math.random() * 8);
    result = num1 / num2;

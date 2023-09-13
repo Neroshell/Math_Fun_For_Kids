@@ -40,21 +40,65 @@ var score = document.querySelector('.main-score');
 var scoreValue = 0;
 var playButton = document.querySelector('.play-btn');
 var endgame = document.querySelector('.end-game');
-var endgameValue = 26;
-endgame.innerHTML = endgameValue;
+var endgameValue = 0;
+endgame.textContent = 26;
 var audio = new Audio("audio/buzzer.mp3");
 var audio3 = new Audio("audio/end-round.mp3");
+var audio4 = new Audio("audio/endsound.wav");
+var audio5 = new Audio("audio/restart-sound.mp3");
+var audio6 = new Audio("audio/gamelevel.wav");
 var tipBox = document.querySelector(".tip");
-var clickTime = 0;
+var secondmodalTwo = document.querySelector(".second-modal-2");
+var overLay = document.querySelector(".overlay");
+var secondClose = document.querySelector(".times-second-modal");
+var restart_inModal2 = document.querySelector(".btn-modal-2");
+var modal_firstScore = document.querySelector(".modal-first-score");
+var comment = document.querySelector(".comment");
 
+function updateComment() {
+
+	if (scoreValue <= 5){
+		comment.innerHTML = "Great effort, keep practicing!";
+	 }
+	 if (scoreValue > 5 && scoreValue === 10){
+		comment.innerHTML =  "You're on the right track, keep going!";
+	 }
+	 if (scoreValue > 10 && scoreValue === 15){
+		comment.innerHTML = "Impressive progress, keep pushing forward.";
+	 }
+
+	 if (scoreValue > 15 && scoreValue === 20){
+		comment.innerHTML = "Fantastic work, keep up the momentum.";
+	 }
+	 if (scoreValue > 15 && scoreValue === 20){
+		comment.innerHTML = "Excellent job, you're almost there";
+	 }
+	 if (scoreValue === 26){
+		
+		   if (scoreValue === 26) {
+			  let success = [
+				 "Perfect score - you're alphabet superstar! ",
+				 "You nailed it! 26/26 – superb job!",
+				 "You're on fire! – Well done!",
+				 "Incredible! Flawless! Amazing!, Well done Champ"
+			  ];
+		
+			  let gam = Math.floor(Math.random() * success.length);
+		
+			  comment.innerHTML = success[gam]; // Change 'comments' to 'comment'
+		   }
+		}
+
+}
 
 
 
 
 function playRandom() {
+	
+	
 
-
-
+	
 	playButton.style.display = "none";
 
 	function repeatSound() {
@@ -172,37 +216,48 @@ function playRandom() {
 	];
 
 
-
-
 	let randomValue = Math.floor(Math.random() * alphabetData.length);
 	let newSound = new Audio(alphabetData[randomValue].audio);
-	newSound.play();
+	if (endgameValue < 26){
+		newSound.play();
+	}
+	
+	restart_inModal2.addEventListener('click', resetScore)
 
 
-
-
-
-	buttons.forEach(function(button) {
+		buttons.forEach(function(button) {
 		button.onclick = function() {
+
+			endgameValue++;
+			endgame.innerHTML = endgameValue;
 			
-         clickTime++;
 
+			if(endgameValue === 26){
+				secondmodalTwo.style.display = "block";
+				overLay.style.display = "block";
+				audio6.play();
+				modal_firstScore.innerHTML = scoreValue;
+				updateComment();
 
+				
+			}
 
+			
+			
 			let correctLetter = alphabetData[randomValue].letter;
 			if (correctLetter === button.textContent) {
 				audio2.play();
 				button.style.backgroundColor = 'green';
 				remark.style.opacity = '1';
 				remark.innerHTML = 'Correct letter!';
-            remark.style.backgroundColor = 'green';
+           		remark.style.backgroundColor = 'green';
+				scoreValue++;
+				score.innerHTML = scoreValue;
+				
+				
+				
 				
 
-				scoreValue++;
-
-
-				score.innerHTML = scoreValue;
-				endgame.innerHTML = endgameValue;
 				setTimeout(() => {
 					playRandom();
 				}, 2000);
@@ -218,7 +273,8 @@ function playRandom() {
 				remark.style.opacity = '1';
 				remark.style.backgroundColor = 'red';
 				button.style.backgroundColor = 'red'; // Reset other buttons
-				endgame.innerHTML = endgameValue;
+				
+		
 				setTimeout(() => {
 
 					remark.style.opacity = '0';
@@ -294,3 +350,32 @@ playButton.addEventListener("click", () => {
 	}
 
 	firstTip();
+
+	secondClose.addEventListener('click', resetScore);
+	restart_inModal2.addEventListener('click', resetScore2)
+
+	function resetScore(){
+		secondmodalTwo.style.display = 'none';
+		overLay.style.display = 'none';
+		score.innerHTML = 0;
+		scoreValue = 0;
+	}
+
+	function resetScore2(){
+		secondmodalTwo.style.display = 'none';
+		overLay.style.display = 'none';
+		score.innerHTML = 0;
+		scoreValue = 0;
+		audio5.play();
+
+		buttons.forEach(function(button) {
+
+				button.style.backgroundColor = "#FCE22A";
+		});
+			 
+	};
+	
+
+
+	
+	

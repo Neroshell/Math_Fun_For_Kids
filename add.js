@@ -56,13 +56,13 @@ function updateComment() {
    if (scoreValue === 7){
       comment.innerHTML = "Good! This is clever! you are not far from excellent";
    }
-   if (scoreValue == 8){
+   if (scoreValue === 8){
       comment.innerHTML = "intelligent performance!";
    }
    if (scoreValue === 9){
       comment.innerHTML = "Wow! coolest kid in the world! You are brilliant";
    }
-   if (scoreValue == 10){
+   if (scoreValue === 10){
       
          if (scoreValue === 10) {
             let success = [
