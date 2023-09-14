@@ -240,10 +240,11 @@ function playRandom() {
 			
 
 			if(endgameValue === 26){
+				modal_firstScore.innerHTML = scoreValue;
 				secondmodalTwo.style.display = "block";
 				overLay.style.display = "block";
 				audio6.play();
-				modal_firstScore.innerHTML = scoreValue;
+				
 				updateComment();
 
 				
@@ -385,11 +386,12 @@ playButton.addEventListener("click", () => {
 		buttons.forEach(function(button) {
 
 				button.style.backgroundColor = "#FCE22A";
+				button.onclick = null;
 		});
 
 		setTimeout(() => {
 			playRandom();
-		}, 9000);
+		}, 8500);
 		
 			 
 	};
