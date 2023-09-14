@@ -57,6 +57,10 @@ var comment = document.querySelector(".comment");
 
 function updateComment() {
 
+	if (scoreValue == 0){
+		comment.innerHTML = "You need help, keep practicing!";
+	 }
+
 	if (scoreValue <= 5){
 		comment.innerHTML = "Great effort, keep practicing!";
 	 }
@@ -70,12 +74,11 @@ function updateComment() {
 	 if (scoreValue > 15 && scoreValue === 20){
 		comment.innerHTML = "Fantastic work, keep up the momentum.";
 	 }
-	 if (scoreValue > 15 && scoreValue === 20){
+	 if (scoreValue > 20 && scoreValue === 25){
 		comment.innerHTML = "Excellent job, you're almost there";
 	 }
 	 if (scoreValue === 26){
-		
-		   if (scoreValue === 26) {
+		 
 			  let success = [
 				 "Perfect score - you're alphabet superstar! ",
 				 "You nailed it! 26/26 – superb job!",
@@ -85,19 +88,17 @@ function updateComment() {
 		
 			  let gam = Math.floor(Math.random() * success.length);
 		
-			  comment.innerHTML = success[gam]; // Change 'comments' to 'comment'
+			  comment.innerHTML = success[gam]; 
 		   }
 		}
 
-}
+
 
 
 
 
 function playRandom() {
 	
-	
-
 	
 	playButton.style.display = "none";
 
@@ -223,10 +224,16 @@ function playRandom() {
 	}
 	
 	restart_inModal2.addEventListener('click', resetScore)
-
+	
+	
+	
 
 		buttons.forEach(function(button) {
+
+			
+			
 		button.onclick = function() {
+
 
 			endgameValue++;
 			endgame.innerHTML = endgameValue;
@@ -295,7 +302,12 @@ function playRandom() {
 playButton.addEventListener("click", () => {
 
 
+	buttons.forEach(button => {
+		
+		button.onclick = null;
+		
 
+	});
 	tipBox.style.display = "block";
 	tipBox.innerHTML = 'Useful tip <br> Click on the corresponding letter';
 
@@ -366,12 +378,19 @@ playButton.addEventListener("click", () => {
 		overLay.style.display = 'none';
 		score.innerHTML = 0;
 		scoreValue = 0;
+		endgame.textContent = '26';
+		endgameValue = 0;
 		audio5.play();
 
 		buttons.forEach(function(button) {
 
 				button.style.backgroundColor = "#FCE22A";
 		});
+
+		setTimeout(() => {
+			playRandom();
+		}, 9000);
+		
 			 
 	};
 	
