@@ -61,20 +61,20 @@ function updateComment() {
 		comment.innerHTML = "You need help, keep practicing!";
 	 }
 
-	if (scoreValue <= 5){
+	if (scoreValue > 0 && scoreValue <= 5){
 		comment.innerHTML = "Great effort, keep practicing!";
 	 }
-	 if (scoreValue > 5 && scoreValue === 10){
+	 if (scoreValue > 5 && scoreValue <= 10){
 		comment.innerHTML =  "You're on the right track, keep going!";
 	 }
-	 if (scoreValue > 10 && scoreValue === 15){
+	 if (scoreValue > 10 && scoreValue <= 15){
 		comment.innerHTML = "Impressive progress, keep pushing forward.";
 	 }
 
-	 if (scoreValue > 15 && scoreValue === 20){
+	 if (scoreValue > 15 && scoreValue <= 20){
 		comment.innerHTML = "Fantastic work, keep up the momentum.";
 	 }
-	 if (scoreValue > 20 && scoreValue === 25){
+	 if (scoreValue > 20 && scoreValue <= 25){
 		comment.innerHTML = "Excellent job, you're almost there";
 	 }
 	 if (scoreValue === 26){
@@ -99,7 +99,7 @@ function updateComment() {
 
 function playRandom() {
 	
-	
+
 	playButton.style.display = "none";
 
 	function repeatSound() {
@@ -306,6 +306,8 @@ playButton.addEventListener("click", () => {
 	buttons.forEach(button => {
 		
 		button.onclick = null;
+		button.style.backgroundColor = "#FCE22A";
+			
 		
 
 	});
@@ -327,6 +329,8 @@ playButton.addEventListener("click", () => {
 		tipBox.style.display = "none";
 	}, 4800);
 	audio3.play();
+	
+	
 	playButton.style.display = "none";
 
 	setTimeout(() => {
@@ -365,17 +369,24 @@ playButton.addEventListener("click", () => {
 	firstTip();
 
 	secondClose.addEventListener('click', resetScore);
-	restart_inModal2.addEventListener('click', resetScore2)
+	restart_inModal2.addEventListener('click', reset)
 
 	function resetScore(){
 		secondmodalTwo.style.display = 'none';
 		overLay.style.display = 'none';
 		score.innerHTML = 0;
 		scoreValue = 0;
+		endgame.textContent = '26';
+		endgameValue = 0;
+		playButton.style.display = 'block';
+		
+
+		
 	}
 
-	function resetScore2(){
+	function reset(){
 		secondmodalTwo.style.display = 'none';
+		
 		overLay.style.display = 'none';
 		score.innerHTML = 0;
 		scoreValue = 0;
@@ -389,6 +400,7 @@ playButton.addEventListener("click", () => {
 				button.onclick = null;
 		});
 
+		
 		setTimeout(() => {
 			playRandom();
 		}, 8500);
@@ -397,6 +409,6 @@ playButton.addEventListener("click", () => {
 	};
 	
 
+	
 
-	
-	
+		

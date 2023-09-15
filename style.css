@@ -664,7 +664,7 @@ footer ul li{
     margin: 0 auto;
 }
 .abc-scores{
-    border: 2px solid #30E3DF;
+    border: 2px solid #833AB4;
     width: 20%;
     margin-right: 20px;
     text-align: center;
@@ -721,11 +721,14 @@ footer ul li{
 
 .play-btn, .listen-btn{
     padding: 15px;
-    border: 1px solid black;
     border-radius: 15px;
     color: white !important;
     background-color: #F94A29;   
     cursor: pointer;
+}
+
+.listen-btn:hover{
+    background-color:#833AB4
 }
 
 .listen-btn{
