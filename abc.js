@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	if (scoreValue > 20 && scoreValue <= 25) {
 	  comment.innerHTML = "Excellent job, you're almost there";
 	}
-	if (scoreValue === 26) {
+	else if (scoreValue === 26) {
 	  let success = ["Perfect score - you're alphabet superstar! ", "You nailed it! 26/26 – superb job!", "You're on fire! – Well done!", "Incredible! Flawless! Amazing!, Well done Champ"];
 	  let gam = Math.floor(Math.random() * success.length);
 	  comment.innerHTML = success[gam];
@@ -255,6 +255,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	  button.onclick = null;
 	});
   }
+  
   
   function reset() {
 	secondmodalTwo.style.display = 'none';
