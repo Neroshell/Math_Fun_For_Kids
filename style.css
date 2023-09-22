@@ -16,7 +16,6 @@ html,body{
 
 .body-calc{
     min-height:100vh;
-    position: fixed;
     width: 100%;
    
 }
@@ -502,7 +501,7 @@ iframe{
 .first-svg{
     transform:rotate(180deg);
     z-index:2;
-    margin-bottom: 13px;
+   
 }
 .section-6{
     display:flex;
@@ -554,9 +553,14 @@ footer{
 }
 
 .footer-calc{
-    background-color: #D61355;
-    
-    
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color:#D61355;/* Set your preferred background color */
+    color: #fff; /* Set your preferred text color */
+    text-align: center; 
+
 }
 .others{
     margin-top:50px
@@ -805,6 +809,13 @@ footer ul li{
     .remark{
         width:25%
     }
+    .everything{
+       padding-top: 100px;
+    }
+    .scores{
+        padding: 20px 0px;
+        font-size: large;
+    }
 }
 
 
@@ -814,10 +825,8 @@ footer ul li{
         display:none
     }
 
-    .body-calc{
-        height: 100vh;
-       position: fixed;
-       width: 100%;
+    .footer-calc{
+       display: none;
     }
     nav ul{
         list-style-type:none;
@@ -922,6 +931,12 @@ footer ul li{
     }
     .problem{
         width:40%
+    }
+
+    .scores{
+        padding: 20px 10px;
+        font-size: large;
+        width: 10%;
     }
 }
 
